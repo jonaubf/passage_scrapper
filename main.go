@@ -20,5 +20,19 @@ func main() {
 	pflag.Parse()
 	module, err := ReadBQTModule(*modulePath)
 	assertError(err)
-	fmt.Printf("%+v\n", module)
+
+	tbs, err := parseFile(*srcPath)
+	assertError(err)
+
+	fmt.Println(tbs)
+
+	for _, tb := range tbs {
+		text, err := module.GetScripture(tb)
+		if err != nil {
+			fmt.Printf("[WARNING] %s\n", err)
+		}
+
+		fmt.Println(tb.String())
+		fmt.Println(text)
+	}
 }

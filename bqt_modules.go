@@ -71,7 +71,7 @@ func (dl *dirIniLoader) Load() (*Module, error) {
 		case "FullName":
 			bi.FullName = value
 		case "ShortName":
-			bi.ShortName = strings.Split(value, " ")
+			bi.ShortName = strings.Split(strings.ToLower(value), " ")
 		case "ChapterQty":
 			bis = append(bis, bi)
 		}

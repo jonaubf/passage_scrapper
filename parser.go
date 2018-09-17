@@ -79,16 +79,16 @@ func parseFile(srcPath string) ([]TextBlock, error) {
 	return tbs, nil
 }
 
-func (m *Module) GetScripture(tb TextBlock) (string, error) {
+func (m *Module) GetScripture(tb TextBlock) ([]string, error) {
 	book, ok := m.Books[tb.BookName]
 	if !ok {
-		return "", fmt.Errorf("book %s not found in module", tb.BookName)
+		return nil, fmt.Errorf("book %s not found in module", tb.BookName)
 	}
 
 	if tb.StartChapter > tb.EndChapter {
-		return "", fmt.Errorf("worng chapters order")
+		return nil, fmt.Errorf("worng chapters order")
 	} else if tb.StartChapter == tb.EndChapter && tb.StartVerse > tb.EndVerse {
-		return "", fmt.Errorf("worng verses order")
+		return nil, fmt.Errorf("worng verses order")
 	}
 
 	verses := make([]string, 0)
@@ -110,5 +110,5 @@ func (m *Module) GetScripture(tb TextBlock) (string, error) {
 			}
 		}
 	}
-	return strings.Join(verses, "\n"), nil
+	return verses, nil
 }

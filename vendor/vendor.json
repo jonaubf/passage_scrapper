@@ -1,0 +1,25 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "5mz1XFeqpaUDgbhj9cVAV6KRL1c=",
+			"path": "github.com/grokify/html-strip-tags-go",
+			"revision": "3f8856873ce5730282807732a0413fcf7c98cc58",
+			"revisionTime": "2018-05-30T08:05:03Z"
+		},
+		{
+			"checksumSHA1": "wysUzOmSB2AeoCwKKTAawxscRCI=",
+			"path": "github.com/jung-kurt/gofpdf",
+			"revision": "964b1221fa545d09ad62569f58a94dbbadaad57c",
+			"revisionTime": "2018-07-31T23:44:38Z"
+		},
+		{
+			"checksumSHA1": "egfheShGROUlwCTjbXjQJTYsGMg=",
+			"path": "github.com/spf13/pflag",
+			"revision": "d929dcbb10863323c436af3cf76cb16a6dfc9b29",
+			"revisionTime": "2018-08-21T11:45:17Z"
+		}
+	],
+	"rootPath": "github.com/jonaubf/passage_scrapper"
+}

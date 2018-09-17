@@ -23,5 +23,5 @@ func main() {
 	tbs, err := parseFile(*srcPath)
 	assertError(err)
 
-	generatePDF(module, tbs)
+	generatePDF(module, tbs, *bgrndPath)
 }

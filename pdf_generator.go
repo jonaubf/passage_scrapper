@@ -17,7 +17,7 @@ const (
 	SideMargin     = 20
 )
 
-func generatePDF(m *Module, tbs []TextBlock) {
+func generatePDF(m *Module, tbs []TextBlock, bgrndPath string) {
 	pdf := initPDF()
 	for _, tb := range tbs {
 		verses, err := m.GetScripture(tb)
@@ -26,7 +26,7 @@ func generatePDF(m *Module, tbs []TextBlock) {
 			continue
 		}
 		for {
-			verses = addPage(pdf, tb.String(), "static/1.png", verses)
+			verses = addPage(pdf, tb.String(), bgrndPath, verses)
 			if len(verses) == 0 {
 				break
 			}

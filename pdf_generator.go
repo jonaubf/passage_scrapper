@@ -76,7 +76,7 @@ func addPage(pdf *gofpdf.Fpdf, header, background string, verses []string) []str
 		l2 := pdf.AddLayer("Text", true)
 		pdf.BeginLayer(l1)
 		opt := gofpdf.ImageOptions{ImageType: imageType, ReadDpi: true}
-		pdf.ImageOptions(background, 0, 0, Width, Height, false, opt, 0, "")
+		pdf.ImageOptions(background, 0, 0, 0, 0, false, opt, 0, "")
 		pdf.EndLayer()
 		pdf.BeginLayer(l2)
 		pdf.SetMargins(SideMargin, TopMargin, SideMargin)

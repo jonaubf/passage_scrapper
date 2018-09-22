@@ -9,10 +9,10 @@ import (
 )
 
 const (
-	Width          = 512
-	Height         = 384
-	HeaderFontSize = 52
-	TextFontSize   = 64
+	Width          = 1024
+	Height         = 768
+	HeaderFontSize = 42
+	TextFontSize   = 48
 	TopMargin      = 15
 	SideMargin     = 20
 )
@@ -40,7 +40,7 @@ func generatePDF(m *Module, tbs []TextBlock, bgrndPath string) {
 
 func initPDF() *gofpdf.Fpdf {
 	pdf := gofpdf.NewCustom(&gofpdf.InitType{
-		UnitStr: "mm",
+		UnitStr: "pt",
 		Size:    gofpdf.SizeType{Wd: Width, Ht: Height},
 	})
 	pdf.SetFontLocation("static/")
@@ -76,7 +76,7 @@ func addPage(pdf *gofpdf.Fpdf, header, background string, verses []string) []str
 		l2 := pdf.AddLayer("Text", true)
 		pdf.BeginLayer(l1)
 		opt := gofpdf.ImageOptions{ImageType: imageType, ReadDpi: true}
-		pdf.ImageOptions(background, 0, 0, 0, 0, false, opt, 0, "")
+		pdf.ImageOptions(background, 0, 0, 0, Height, false, opt, 0, "")
 		pdf.EndLayer()
 		pdf.BeginLayer(l2)
 		pdf.SetMargins(SideMargin, TopMargin, SideMargin)

@@ -99,10 +99,13 @@ func addPage(pdf *gofpdf.Fpdf, header, background string, verses []string) []str
 	pdf.SetFont("Helvetica", "", TextFontSize)
 	_, lineHt = pdf.GetFontSize()
 
-	for _, v := range verses {
+	for _, v := range verses[:] {
 		lines := pdf.SplitLines([]byte(tr(v)), Width-(2*SideMargin))
 		cellHt := lineHt * float64(len(lines))
 		if pdf.GetY()+cellHt > Height-TopMargin {
+			if len(background) != 0 {
+				pdf.EndLayer()
+			}
 			return verses
 		}
 		for _, l := range lines {
